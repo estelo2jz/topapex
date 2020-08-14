@@ -1,0 +1,76 @@
+const express = require('express');
+
+const app = express();
+
+app.get('/api/players', (req, res) => {
+  const players = [
+    {id: 1, gamerTag: "ImperialHal", playerName: "Philip Dosen", playerTotal: "96,213.68", playerOverall: "105,963.68", percentTotal: "90.80"},
+    {id: 2, gamerTag: "Albralelie", playerName: "Mac Beckwith", playerTotal: "86,663.67	", playerOverall: "87,263.67", percentTotal: "99.31"},
+    {id: 3, gamerTag: "Reps", playerName: "Jordan Wolfe", playerTotal: "83,130.34", playerOverall: "84,480.34", percentTotal: "98.40"},
+    {id: 4, gamerTag: "dizzy", playerName: "Coby Meadows", playerTotal: "73,002.68", playerOverall: "77,822.45", percentTotal: "93.81"},
+    {id: 5, gamerTag: "Huskers", playerName: "Jordan Thomas", playerTotal: "66,712.34", playerOverall: "126,370.68", percentTotal: "52.79"},
+    {id: 6, gamerTag: "zombs", playerName: "Jared Gitlin", playerTotal: "61,998.00", playerOverall: "80,609.09", percentTotal: "76.91"},
+    {id: 7, gamerTag: "ace", playerName: "Brandon Winn", playerTotal: "59,302.68", playerOverall: "99,698.51	", percentTotal: "59.48"},
+    {id: 8, gamerTag: "xRetzi", playerName: "Nathan Telene", playerTotal: "58,898.00", playerOverall: "62,130.44", percentTotal: "94.80"},
+    {id: 9, gamerTag: "senoxe", playerName: "Adam Lau", playerTotal: "55,354.67", playerOverall: "55,354.67", percentTotal: "100.00"},
+    {id: 10, gamerTag: "Sweetdreams", playerName: "Chris Sexton", playerTotal: "55,159.03", playerOverall: "89,634.03", percentTotal: "61.54"},
+    {id: 11, gamerTag: "Dropped", playerName: "Mark Thees", playerTotal: "54,725.70", playerOverall: "59,100.70", percentTotal: "92.60"},
+    {id: 12, gamerTag: "Clawz", playerName: "Nikita Marchinsky", playerTotal: "46,406.32", playerOverall: "292,583.82", percentTotal: "15.86"},
+    {id: 13, gamerTag: "9impulse", playerName: "Kirill Ivanov", playerTotal: "42,670.66", playerOverall: "42,670.66", percentTotal: "100.00"},
+    {id: 14, gamerTag: "KingRichard", playerName: "	Richard Nelson", playerTotal: "41,882.33", playerOverall: "136,840.66", percentTotal: "30.61"},
+    {id: 15, gamerTag: "pkmk", playerName: "	Artem Nechayev", playerTotal: "38,975.66", playerOverall: "39,156.12", percentTotal: "99.54"},
+    {id: 16, gamerTag: "Snipedown", playerName: "Eric Wrona", playerTotal: "34,726.69", playerOverall: "359,489.19", percentTotal: "9.66"},
+    {id: 17, gamerTag: "Mendokusaii", playerName: "Lucas Håkansson", playerTotal: "28,300.00", playerOverall: "47,543.16", percentTotal: "59.52"},
+    {id: 18, gamerTag: "Mohr", playerName: "	Marshall Mohr", playerTotal: "28,289.34", playerOverall: "33,892.63", percentTotal: "83.47"},
+    {id: 19, gamerTag: "KaronPe", playerName: "	- -", playerTotal: "26,836.67	", playerOverall: "26,836.67", percentTotal: "100.00"},
+    {id: 20, gamerTag: "Selly", playerName: "An, Jeonghwan", playerTotal: "26,000.00", playerOverall: "28,716.21", percentTotal: "90.54"},
+    {id: 21, gamerTag: "Overpowered", playerName: "Timothy Liang", playerTotal: "23,853.00", playerOverall: "50,253.00", percentTotal: "47.47"},
+    {id: 22, gamerTag: "parhka_V", playerName: "	- -", playerTotal: "23,600.00", playerOverall: "23,600.00	", percentTotal: "100.00"},
+    {id: 23, gamerTag: "vsnz", playerName: "	Sean Garcia", playerTotal: "22,189.33", playerOverall: "26,333.33", percentTotal: "84.26"},
+    {id: 24, gamerTag: "Rogue", playerName: "	Tanner Trebb", playerTotal: "21,254.67", playerOverall: "21,254.67", percentTotal: "100.00"},
+    {id: 25, gamerTag: "TannerSlays", playerName: "	- -", playerTotal: "21,106.34", playerOverall: "23,856.34	", percentTotal: "88.47"},
+    {id: 26, gamerTag: "Osnazeni", playerName: "Ivan Markeljic", playerTotal: "19,612.10", playerOverall: "19,693.14	", percentTotal: "99.59"},
+    {id: 27, gamerTag: "wSerious", playerName: "Romain Dittmann", playerTotal: "19,612.10", playerOverall: "19,755.30", percentTotal: "99.28"},
+    {id: 28, gamerTag: "Viss", playerName: "Colton Visser", playerTotal: "19,173.34", playerOverall: "32,198.34", percentTotal: "59.55"},
+    {id: 29, gamerTag: "ImMadness", playerName: "Ryan Schlieve", playerTotal: "18,993.34", playerOverall: "18,993.34", percentTotal: "100.00"},
+    {id: 30, gamerTag: "NiceWigg", playerName: "	Jack Martin", playerTotal: "18,416.67", playerOverall: "18,916.67", percentTotal: "97.36"},
+    {id: 31, gamerTag: "Mpe", playerName: "Matthieu Pereira", playerTotal: "17,940.00", playerOverall: "17,993.06	", percentTotal: "99.71"},
+    {id: 32, gamerTag: "Geesh", playerName: "Garrett Shearer", playerTotal: "17,829.67", playerOverall: "39,177.17	", percentTotal: "45.51"},
+    {id: 33, gamerTag: "Mondo", playerName: "	Na, Dong Hun", playerTotal: "17,260.00", playerOverall: "17,260.00", percentTotal: "100.00"},
+    {id: 34, gamerTag: "Mithrain", playerName: "	Cem Karakoc", playerTotal: "17,171.34", playerOverall: "44,871.34	", percentTotal: "38.27"},
+    {id: 35, gamerTag: "wtcNN", playerName: "	- -", playerTotal: "17,171.34	", playerOverall: "37,096.34", percentTotal: "46.29"},
+    {id: 36, gamerTag: "Reptar", playerName: "	Ryan Boyd", playerTotal: "17,160.68", playerOverall: "21,010.68", percentTotal: "46.29"},
+    {id: 37, gamerTag: "Artyco", playerName: "	Artur Tishchenko", playerTotal: "16,920.01", playerOverall: "16,920.01", percentTotal: "81.68"},
+    {id: 38, gamerTag: "batubozkan", playerName: "	- -", playerTotal: "16,733.34", playerOverall: "31,008.34", percentTotal: "100.00"},
+    {id: 39, gamerTag: "Muffinzz", playerName: "Christopher McCarthy", playerTotal: "16,616.67", playerOverall: "22,866.67", percentTotal: "53.96"},
+    {id: 40, gamerTag: "PVPX", playerName: "Jamison Moore", playerTotal: "16,390.33", playerOverall: "16,390.33", percentTotal: "72.67"},
+    {id: 41, gamerTag: "Mimunyah", playerName: "Sebastian Vesala", playerTotal: "16,379.25", playerOverall: "16,379.25	", percentTotal: "100.00"},
+    {id: 42, gamerTag: "ZeroNothing", playerName: "	Niko Suominen", playerTotal: "16,279.25", playerOverall: "16,279.25", percentTotal: "100.00"},
+    {id: 43, gamerTag: "iShiny", playerName: "Bryan McCarthy", playerTotal: "16,228.33", playerOverall: "23,839.17", percentTotal: "68.07.00"},
+    {id: 44, gamerTag: "Gigz", playerName: "- -", playerTotal: "15,318.67", playerOverall: "20,318.67	", percentTotal: "75.39"},
+    {id: 45, gamerTag: "Spirit", playerName: "Adam Wills", playerTotal: "15,258.34", playerOverall: "18,367.65	", percentTotal: "83.07"},
+    {id: 46, gamerTag: "AverageAden", playerName: "- -", playerTotal: "15,258.34", playerOverall: "15,200.00", percentTotal: "100.00"},
+    {id: 47, gamerTag: "rpr", playerName: "Dan Ušić", playerTotal: "14,930.00", playerOverall: "14,930.00", percentTotal: "100.00"},
+    {id: 48, gamerTag: "xQx", playerName: "Félix Lengyel", playerTotal: "14,816.67", playerOverall: "27,487.59", percentTotal: "53.90"},
+    {id: 49, gamerTag: "Vaifs", playerName: "Simon Bellini", playerTotal: "14,666.67", playerOverall: "14,666.67", percentTotal: "100.00"},
+    {id: 50, gamerTag: "Ras", playerName: "	Song, Hong Gyun", playerTotal: "13,926.67", playerOverall: "13,926.67	", percentTotal: "100.00"},
+
+    {id: 51, gamerTag: "Exens", playerName: "Maxim Dmitruk", playerTotal: "13,901.84", playerOverall: "13,901.84", percentTotal: "100.00"},
+    {id: 52, gamerTag: "Monsoon", playerName: "Bowen Fuller", playerTotal: "13,880.00", playerOverall: "13,880.00", percentTotal: "100.00"},
+    {id: 53, gamerTag: "xaniya", playerName: "Anton Shkuratov", playerTotal: "13,500.00", playerOverall: "13,500.00", percentTotal: "100.00"},
+    {id: 54, gamerTag: "Meerko", playerName: "	Ryan Amato", playerTotal: "13,432.67", playerOverall: "15,682.67", percentTotal: "100.00"},
+    {id: 55, gamerTag: "Flanker", playerName: "Thomas Cook", playerTotal: "13,372.34", playerOverall: "22,372.34", percentTotal: "85.65"},
+    {id: 56, gamerTag: "Nokokopuffs", playerName: "Christian Feliciano", playerTotal: "13,358.34", playerOverall: "13,858.34", percentTotal: "96.39"},
+    {id: 57, gamerTag: "ZerO", playerName: "	Rhye Perry", playerTotal: "13,335.66", playerOverall: "13,335.66	", percentTotal: "100.00"},
+    {id: 58, gamerTag: "Esdesu", playerName: "Elvira", playerTotal: "13,333.33", playerOverall: "13,333.33", percentTotal: "100.00"},
+    {id: 59, gamerTag: "Keprii", playerName: "Brian St. Pierre", playerTotal: "13,323.01", playerOverall: "28,538.89	", percentTotal: "46.68"},
+    {id: 60, gamerTag: "hAKIS", playerName: "	John Håkansson", playerTotal: "12,833.33", playerOverall: "12,833.33", percentTotal: "100.00"},
+    {id: 61, gamerTag: "maydeelol", playerName: "Rasmus Zettergren", playerTotal: "12,268.00", playerOverall: "12,268.00", percentTotal: "100.00"},
+    {id: 62, gamerTag: "Hardecki", playerName: "	Konstantin Kozlov", playerTotal: "12,188.52", playerOverall: "12,188.52", percentTotal: "100.00"},
+  ]
+  res.json(players);
+})
+
+const port  = 5000;
+
+app.listen(port, () => console.log(`Server started on port ${port}`));

@@ -1,0 +1,15 @@
+.container-flex {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  text-align: left;
+
+}
+
+.container-id {
+}
+p {
+  padding: 0px 10px 0px 10px;
+  margin: 0;
+  width: 160px;
+}
